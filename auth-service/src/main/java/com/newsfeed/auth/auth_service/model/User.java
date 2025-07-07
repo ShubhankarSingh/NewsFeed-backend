@@ -12,8 +12,6 @@ import java.util.List;
 @Data
 @Document
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class User {
 
     @Id

@@ -4,7 +4,6 @@ import com.newsfeed.auth.auth_service.dto.RegisterRequest;
 import com.newsfeed.auth.auth_service.model.User;
 import com.newsfeed.auth.auth_service.repository.UserRepository;
 import com.newsfeed.auth.auth_service.service.UserService;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
