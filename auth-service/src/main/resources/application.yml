@@ -8,6 +8,10 @@ spring:
   application:
     name: auth-service
 
+jwt:
+  secret: ${JWT_SECRET:36763979244226452948404D635166546A576D5A7134743777217A25432A462D}
+  expiration: 1800000
+
 logging:
   level:
     root: INFO

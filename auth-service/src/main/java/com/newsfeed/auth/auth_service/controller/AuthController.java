@@ -1,5 +1,6 @@
 package com.newsfeed.auth.auth_service.controller;
 
+import com.newsfeed.auth.auth_service.dto.LoginRequest;
 import com.newsfeed.auth.auth_service.dto.RegisterRequest;
 import com.newsfeed.auth.auth_service.model.User;
 import com.newsfeed.auth.auth_service.service.UserService;
@@ -26,6 +27,12 @@ public class AuthController {
         User registeredUser = userService.register(request);
 
         return ResponseEntity.ok(registeredUser);
+
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody LoginRequest request){
+
 
     }
 }
