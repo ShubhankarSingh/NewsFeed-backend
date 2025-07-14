@@ -11,19 +11,21 @@ import java.util.Date;
 @Service
 public class JWTService {
 
-        private static final long jwt_Expiration_Time;
+        private final JWTConfigProperties configProperties;
 
-        private static final String secret;
+        private JWTService(JWTConfigProperties configProperties){
+            this.configProperties = configProperties;
+        }
 
         private Key getSigningKey(){
-            return Keys.hmacShaKeyFor(secret.getBytes());
+            return Keys.hmacShaKeyFor(configProperties.getSecret().getBytes());
         }
 
         public String generateToken(String username){
             return Jwts.builder()
                     .setSubject(username)
                     .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + jwt_Expiration_Time))
+                    .setExpiration(new Date(System.currentTimeMillis() + configProperties.getExpiration()))
                     .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                     .compact();
         }
